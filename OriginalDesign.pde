@@ -14,7 +14,8 @@ float [] uranusCo={420,600,190};
 float [] neptuneCo={150,600,200};
 int x = 1;//counter for stars
 int [] counter = {1,1,1,1,1,1,1,1};//counter for when planets rotate
-float speed = .25;
+float speed =.5;
+int timer = 5;
 void setup()
 {
   size(800, 800, P3D);
@@ -25,7 +26,11 @@ void draw()
   noStroke();
   noFill();
   point(0, 1);
-  stars();
+  timer =timer -1;
+  if(timer ==0){//make the stars flash randomly every 5 seconds
+  	stars();
+  	timer =5;
+  }
   lightBall();// the light behind the sun WIP
   sun();
   mercury();
@@ -36,12 +41,15 @@ void draw()
   saturn();//try and add rings later
   uranus();
   neptune();
+  if(key == UP && keyPressed == true){
+  	speed = speed + 1;
+  }
 }
 void stars() {//draw stars flashing
   x=x+1;//add one to the star counter
     if(x<3) {//its always less than 3 because it resets after the 
     //function ends
-    fill(255, 255, 0);
+    fill(255, 255, 255);
     rect((int)(Math.random()*800),(int)(Math.random()*800),5,5);
   }
   x=1;
