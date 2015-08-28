@@ -14,7 +14,7 @@ float [] uranusCo={420,600,190};
 float [] neptuneCo={150,600,200};
 int x = 1;//counter for stars
 int [] counter = {1,1,1,1,1,1,1,1};//counter for when planets rotate
-float speed =.5;
+float speed =7;
 int timer = 5;
 void setup()
 {
